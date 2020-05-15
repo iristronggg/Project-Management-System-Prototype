@@ -42,13 +42,4 @@ class LoginController extends Controller
     {
         return 'username';
     }
-
-    protected function sendFailedLoginResponse(Request $request)
-    {
-        return redirect('/login')
-            ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors([
-                $this->username() => Lang::get('auth.failed'),
-            ]);
-    }
 }
